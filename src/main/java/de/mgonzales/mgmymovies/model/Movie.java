@@ -15,12 +15,13 @@ import java.io.Serializable;
 public class Movie implements Serializable {
 
     //region Attribute
+    private IntegerProperty id;
     private final StringProperty title;
     private final StringProperty leadRole;
     private final StringProperty genre;
     private final IntegerProperty duration;
     private final StringProperty country;
-    private IntegerProperty id;
+
     //endregion Attribute
 
 

@@ -3,6 +3,7 @@ package de.mgonzales.mgmymovies.gui;
 import de.mgonzales.mgmymovies.logic.database.DaoMovie;
 import de.mgonzales.mgmymovies.model.Movie;
 import de.mgonzales.mgmymovies.settings.AppTexts;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -43,6 +45,8 @@ public class MovieController implements AddMovieController.OnMovieAddedListener 
     private TableColumn<Movie, Integer> colDuration;
     @FXML
     private TableColumn<Movie, String> colCountry;
+    @FXML
+    private Button btnExit;
     private final ObservableList<Movie> movieList = FXCollections.observableArrayList();
     private final DaoMovie daoMovie = new DaoMovie(); // oder erhalten Sie diese Instanz anders, falls erforderlich
 
@@ -60,6 +64,10 @@ public class MovieController implements AddMovieController.OnMovieAddedListener 
     }
 
     private void setupTableColumns() {
+        tableMovies.getColumns().removeIf(col -> "ID".equals(col.getText()));
+        TableColumn<Movie, Integer> idColumn = new TableColumn<>("ID");
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tableMovies.getColumns().add(0, idColumn);
         // Hier wird die CellValueFactory für jede Spalte konfiguriert
         colTitle.setCellValueFactory(new PropertyValueFactory<>(AppTexts.TXT_COL_TITLE));
         colLeadRole.setCellValueFactory(new PropertyValueFactory<>(AppTexts.TXT_COL_LEADROLE));
@@ -77,11 +85,6 @@ public class MovieController implements AddMovieController.OnMovieAddedListener 
             tableMovies.setItems(movieList); // Setzt die aktualisierte Liste als Items für die TableView
             tableMovies.refresh(); // Erzwingt ein erneutes Zeichnen der Tabelle
         }
-    }
-
-    @FXML
-    private void handleShowMovieList(ActionEvent event) {
-        loadMoviesFromDatabase();
     }
 
     @FXML
@@ -120,12 +123,7 @@ public class MovieController implements AddMovieController.OnMovieAddedListener 
         }
     }
 
-    private void refreshMovieTable() {
-        // Aktualisieren Sie die Filme in der Tabelle, z.B. durch erneutes Laden aus der Datenbank
-        loadMoviesFromDatabase();
-    }
-
-    private void showAddMovieDialog() {
+        private void showAddMovieDialog() {
         try {
             // Laden der FXML-Datei für den AddMovieDialog
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/de/mgonzales/mgmymovies/add-movie-dialog.fxml")); // Pfad aktualisieren
@@ -154,10 +152,6 @@ public class MovieController implements AddMovieController.OnMovieAddedListener 
             alert.setHeaderText(AppTexts.TXT_ALERT_CONFIRM_DELETION);
             alert.setContentText(AppTexts.TXT_ALERT_CONFIRM_TO_DELETE_MOVIE);
             // Datenbankoperation
-//            String url = TXT_URL; // Pfad zu Ihrer Datenbank
-//            String password = TXT_PASSWORD;
-//            String sql = AppTexts.TXT_DELETE_MOVIE;
-
             try (Connection conn = DriverManager.getConnection(TXT_URL, TXT_USERNAME, TXT_PASSWORD);
                  PreparedStatement pstmt = conn.prepareStatement(AppTexts.TXT_DELETE_MOVIE)) {
 
@@ -188,6 +182,10 @@ public class MovieController implements AddMovieController.OnMovieAddedListener 
     public void onMovieAdded(Movie movie) {
         // Fügt den neuen Film zur TableView hinzu
         tableMovies.getItems().add(movie);
+    }
+
+    public void handleExit(ActionEvent actionEvent) {
+        Platform.exit();
     }
     //endregion Methoden
 }
