@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jlink" name="My Movies">
+    <output-path>$PROJECT_DIR$/out/artifacts/My_Movies</output-path>
+    <root id="root" />
+  </artifact>
+</component>
