@@ -16,12 +16,12 @@
    </Label>
    <TableView fx:id="tableMovies">
       <columns>
-         <TableColumn fx:id="colId" prefWidth="20.0" text="ID" />
-         <TableColumn fx:id="colTitle" prefWidth="300.0" text="Titel" />
-         <TableColumn fx:id="colLeadRole" prefWidth="150.0" text="Hauptrolle" />
-         <TableColumn fx:id="colGenre" prefWidth="110.0" text="Genre" />
-         <TableColumn fx:id="colDuration" text="Dauer" />
-         <TableColumn fx:id="colCountry" prefWidth="100.0" text="Land" />
+         <TableColumn fx:id="colId" minWidth="20.0" prefWidth="20.0" style="-fx-alignment: CENTER;" text="ID" />
+         <TableColumn fx:id="colTitle" prefWidth="300.0" style="-fx-alignment: CENTER;" text="Titel" />
+         <TableColumn fx:id="colLeadRole" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Hauptrolle" />
+         <TableColumn fx:id="colGenre" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Genre" />
+         <TableColumn fx:id="colDuration" style="-fx-alignment: CENTER;" text="Dauer" />
+         <TableColumn fx:id="colCountry" prefWidth="110.0" style="-fx-alignment: CENTER;" text="Land" />
       </columns>
    </TableView>
    <HBox alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="760.0" spacing="100.0">
