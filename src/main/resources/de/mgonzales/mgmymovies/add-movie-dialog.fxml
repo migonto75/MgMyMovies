@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox style="-fx-background-color: gray;" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.mgonzales.mgmymovies.gui.AddMovieController">
+    <children>
+        <TextField fx:id="titleField" promptText="Titel">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+        <TextField fx:id="leadRoleField" promptText="Hauptrolle">
+         <font>
+            <Font size="14.0" />
+         </font></TextField> <!-- Änderung hier -->
+        <TextField fx:id="genreField" promptText="Genre">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+        <TextField fx:id="lengthField" promptText="Dauer">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+        <TextField fx:id="countryField" promptText="Land">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+        <Button onAction="#handleSaveMovieButtonAction" style="-fx-background-color: black; -fx-text-fill: gold;" prefHeight="30.0" prefWidth="150.0" text="Anlegen">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Button>
+    </children>
+   <padding>
+      <Insets left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox style="-fx-background-color: gray;" alignment="CENTER" prefHeight="300.0" prefWidth="400.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.mgonzales.mgmymovies.gui.UpdateMovieController">
+    <padding>
+        <Insets left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <TextField fx:id="titleField" prefHeight="30.0" prefWidth="300.0" promptText="Title">
+      <font>
+         <Font size="14.0" />
+      </font></TextField>
+    <TextField fx:id="leadRoleField" prefHeight="30.0" prefWidth="300.0" promptText="Lead Role">
+      <font>
+         <Font size="14.0" />
+      </font></TextField>
+    <TextField fx:id="genreField" prefHeight="30.0" prefWidth="300.0" promptText="Genre">
+      <font>
+         <Font size="14.0" />
+      </font></TextField>
+    <TextField fx:id="lengthField" prefHeight="30.0" prefWidth="300.0" promptText="Length">
+      <font>
+         <Font size="14.0" />
+      </font></TextField>
+    <TextField fx:id="countryField" prefHeight="30.0" prefWidth="300.0" promptText="Country">
+      <font>
+         <Font size="14.0" />
+      </font></TextField>
+
+    <HBox alignment="CENTER" spacing="20.0">
+        <Button onAction="#handleOk" style="-fx-background-color: black; -fx-text-fill: gold;" prefHeight=" 30.0" prefWidth="150.0" text="Speichern">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+        <Button onAction="#handleCancel" style="-fx-background-color: black; -fx-text-fill: gold;" prefHeight="30.0" prefWidth="150.0" text="Abbrechen">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+    </HBox>
+</VBox>

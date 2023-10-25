@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox style="-fx-background-color: gray;" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.mgonzales.mgmymovies.gui.MovieController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Label fx:id="lblHead" text="My Movie List" style="-fx-text-fill: gold">
+      <font>
+         <Font name="System Bold Italic" size="24.0" />
+      </font>
+   </Label>
+   <TableView fx:id="tableMovies">
+      <columns>
+         <TableColumn fx:id="colTitle" prefWidth="300.0" text="Titel" />
+         <TableColumn fx:id="colLeadRole" prefWidth="150.0" text="Hauptrolle" />
+         <TableColumn fx:id="colGenre" prefWidth="110.0" text="Genre" />
+         <TableColumn fx:id="colDuration" prefWidth="100.0" text="Dauer" />
+         <TableColumn fx:id="colCountry" prefWidth="100.0" text="Land" />
+      </columns>
+   </TableView>
+   <HBox alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="760.0" spacing="100.0">
+      <children>
+         <Button fx:id="btnShow" style="-fx-background-color: black; -fx-text-fill: gold;" mnemonicParsing="false" onAction="#handleShowMovieList" prefWidth="150.0" text="Anzeigen">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnAddMovie" style="-fx-background-color: black; -fx-text-fill: gold;" mnemonicParsing="false" onAction="#handleAddMovie" prefHeight="30.0" prefWidth="150.0" text="Anlegen">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnUpdateMovie" style="-fx-background-color: black; -fx-text-fill: gold;" mnemonicParsing="false" onAction="#handleUpdateMovie" prefWidth="150.0" text="Bearbeiten">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnDeleteMovie" style="-fx-background-color: black; -fx-text-fill: gold;" mnemonicParsing="false" onAction="#handleDeleteMovie" prefWidth="150.0" text="Löschen">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+      </children>
+   </HBox>
+</VBox>
